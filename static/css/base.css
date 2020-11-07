@@ -39,6 +39,10 @@
   background: rgba(0, 0, 0, 0.5)
 }
 
+.cultured-background{
+  background: #F6F6F6;
+}
+
 /* General */
 
 html {
