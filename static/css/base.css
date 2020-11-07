@@ -1,0 +1,84 @@
+/* Font Families */
+
+.leckerli {
+  font-family: 'Leckerli One', cursive;
+}
+
+.lemonada {
+  font-family: 'Lemonada', cursive;
+}
+
+
+/* Colours */
+
+.Old_Burgundy{
+  color: #42332C;
+}
+
+.Desert_Sand{
+  color: #F2CDB3;
+}
+.Cultured{
+  color: #F6F6F6;
+}
+.White{
+  color: #FBFBFB;
+}
+.Eerie_Black{
+  color: #1F1F1F;
+}
+.Magnusson_Analytica_1{
+  color: #FF6D02;
+}
+.Magnusson_Analytica_2{
+  color: #00305A;
+}
+
+/* Background adjustments */
+.shaded {
+  background: rgba(0, 0, 0, 0.5)
+}
+
+/* General */
+
+html {
+  height: 100%;
+}
+
+body {
+  background: url('/media/forest-dog-walking.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: calc(100vh - 80px);
+  color: #F6F6F6;
+  font-family: 'Lemonada', cursive;
+}
+
+/* Buttons */
+.btn {
+    background: #F2CDB3;
+    color: #F6F6F6;
+    min-width: 260px;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+    background: #42332C;
+    color: #F6F6F6;
+}
+
+.btn-lg {
+  border-radius: 1.5rem
+}
+
+/* Navbar Adjustments */
+
+nav {
+  height: 80px
+}
+
+.navbar-brand {
+  font-family: 'Leckerli One', cursive;
+  font-size: 2em
+}
+

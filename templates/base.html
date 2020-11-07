@@ -47,7 +47,7 @@
 
   <body>
   <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
       <a class="navbar-brand" href="#">Pet Sitter Sibiu</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -58,17 +58,25 @@
           <a class="nav-link" href="#">About Us</a>
           <a class="nav-link" href="#">Our Services</a>
           <a class="nav-link" href="#">Contact</a>
-          {% if request.user.is_authenticated %}
-            {% if request.user.is_superuser %}
-              <a class="nav-link" href="#">Product Management</a>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% if request.user.is_authenticated %}
+              {% if request.user.is_superuser %}
+              <a class="dropdown-item" href="#">Product Management</a>
+              {% endif %}
+              <a class="dropdown-item" href="#">My Profile</a>
+              <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+            {% else %}
+              <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
+              <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
             {% endif %}
-            <a class="nav-link" href="#">My Profile</a>
-            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-          {% else %}
-            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            <a class="nav-link" href="{% url 'account_login' %}">Log In</a>
-          {% endif %}
-          <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+            </div>
+          </li>
+          <a class="{% if grand_total %}font-weight-bold{% endif %} nav-link" href="">
             <div class="text-center">
               <div><i class="fas fa-shopping-bag fa-lg"></i></div>
               <p class="my-0">
