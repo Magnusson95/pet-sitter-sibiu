@@ -1,0 +1,28 @@
+[
+  {
+    "pk": 1,
+    "model": "products.service",
+    "fields": {
+      "service_type": "Forest Walk",
+      "period": 60.00,
+      "cost": 30.00,
+      "sub_heading": "Great exercise for your fury friend",
+      "detail_1": "Flexible times",
+      "detail_2": "Reliable service",
+      "detail_3": "Interactive walks"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.service",
+    "fields": {
+      "service_type": "Home Visit",
+      "period": 60.00,
+      "cost": 30.00,
+      "sub_heading": "Company for your fury friend",
+      "detail_1": "Flexible times",
+      "detail_2": "Reliable service",
+      "detail_3": "Minimising separation anxiety"
+    }
+  }
+]

@@ -1,0 +1,450 @@
+[
+  {
+    "pk": 1,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Tortoise (Broasca Testoasa)",
+      "category": 1
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Rabbit (Iepure)",
+      "category": 1
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Fish (Pesti)",
+      "category": 1
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Guineea Pig (Porcusor Guineea)",
+      "category": 1
+    }
+  },
+  {
+    "pk": 5,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Cat (Pisica)",
+      "category": 1
+    }
+  },
+  {
+    "pk": 6,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Bulldog",
+      "category": 1
+    }
+  },
+  {
+    "pk": 7,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Poodle",
+      "category": 1
+    }
+  },
+  {
+    "pk": 8,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Beagle",
+      "category": 1
+    }
+  },
+  {
+    "pk": 9,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Yorkshire Terrier",
+      "category": 1
+    }
+  },
+  {
+    "pk": 10,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Havanese Terrier",
+      "category": 1
+    }
+  },
+  {
+    "pk": 11,
+    "model": "products.animal",
+    "fields": {
+      "animal": "White Terrier",
+      "category": 1
+    }
+  },
+  {
+    "pk": 12,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Scottish Terrier",
+      "category": 1
+    }
+  },
+  {
+    "pk": 13,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Russell Terriers",
+      "category": 1
+    }
+  },
+  {
+    "pk": 14,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Corgie",
+      "category": 1
+    }
+  },
+  {
+    "pk": 15,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Boxer",
+      "category": 1
+    }
+  },
+  {
+    "pk": 16,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Charles /Cocker Spaniel",
+      "category": 1
+    }
+  },
+  {
+    "pk": 17,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Miniature Schnauzer",
+      "category": 1
+    }
+  },
+  {
+    "pk": 18,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Shih Tzu",
+      "category": 1
+    }
+  },
+  {
+    "pk": 19,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Pomeranian",
+      "category": 1
+    }
+  },
+  {
+    "pk": 20,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Pug",
+      "category": 1
+    }
+  },
+  {
+    "pk": 21,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Border Collie",
+      "category": 1
+    }
+  },
+  {
+    "pk": 22,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Chihuahua",
+      "category": 1
+    }
+  },
+  {
+    "pk": 23,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Bichon Maltese",
+      "category": 1
+    }
+  },
+  {
+    "pk": 24,
+    "model": "products.animal",
+    "fields": {
+      "animal": "English Cocker",
+      "category": 1
+    }
+  },
+  {
+    "pk": 25,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Whippet",
+      "category": 1
+    }
+  },
+  {
+    "pk": 26,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Basset",
+      "category": 1
+    }
+  },
+  {
+    "pk": 27,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Retriever (Labrador)",
+      "category": 2
+    }
+  },
+  {
+    "pk": 28,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Retriever (Golden)",
+      "category": 2
+    }
+  },
+  {
+    "pk": 29,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Bull Terrier",
+      "category": 2
+    }
+  },
+  {
+    "pk": 30,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Chow Chow",
+      "category": 2
+    }
+  },
+  {
+    "pk": 31,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Siberian Huskie",
+      "category": 2
+    }
+  },
+  {
+    "pk": 32,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Bloodhound",
+      "category": 2
+    }
+  },
+  {
+    "pk": 33,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Samoyed",
+      "category": 2
+    }
+  },
+  {
+    "pk": 34,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Dalmatian",
+      "category": 2
+    }
+  },
+  {
+    "pk": 35,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Alaskan Malamute",
+      "category": 2
+    }
+  },
+  {
+    "pk": 36,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Chinese Shar-Pei",
+      "category": 2
+    }
+  },
+  {
+    "pk": 37,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Greyhounds",
+      "category": 2
+    }
+  },
+  {
+    "pk": 38,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Chow Chow",
+      "category": 2
+    }
+  },
+  {
+    "pk": 39,
+    "model": "products.animal",
+    "fields": {
+      "animal": "English Setter",
+      "category": 2
+    }
+  },
+  {
+    "pk": 40,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Afghan Hound",
+      "category": 2
+    }
+  },
+  {
+    "pk": 41,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Rottweiler",
+      "category": 3
+    }
+  },
+  {
+    "pk": 42,
+    "model": "products.animal",
+    "fields": {
+      "animal": "German Shepherd",
+      "category": 3
+    }
+  },
+  {
+    "pk": 43,
+    "model": "products.animal",
+    "fields": {
+      "animal": "German Dog",
+      "category": 3
+    }
+  },
+  {
+    "pk": 44,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Carpathian Shepherd",
+      "category": 3
+    }
+  },
+  {
+    "pk": 45,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Great Dane",
+      "category": 3
+    }
+  },
+  {
+    "pk": 46,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Schnauzer",
+      "category": 3
+    }
+  },
+  {
+    "pk": 47,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Doberman",
+      "category": 3
+    }
+  },
+  {
+    "pk": 48,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Cane Corso",
+      "category": 3
+    }
+  },
+  {
+    "pk": 49,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Belgian Malinois",
+      "category": 3
+    }
+  },
+  {
+    "pk": 50,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Shiba Inu",
+      "category": 3
+    }
+  },
+  {
+    "pk": 51,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Akita",
+      "category": 3
+    }
+  },
+  {
+    "pk": 52,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Saint Bernard",
+      "category": 3
+    }
+  },
+  {
+    "pk": 53,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Bullmastiff",
+      "category": 3
+    }
+  },
+  {
+    "pk": 54,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Great Pyrenees",
+      "category": 3
+    }
+  },
+  {
+    "pk": 55,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Giant Schnauzers",
+      "category": 3
+    }
+  },
+  {
+    "pk": 56,
+    "model": "products.animal",
+    "fields": {
+      "animal": "Standard Schnauzers",
+      "category": 3
+    }
+  }
+]
