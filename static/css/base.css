@@ -1,5 +1,4 @@
 /* Font Families */
-
 .leckerli {
   font-family: 'Leckerli One', cursive;
 }
@@ -10,7 +9,6 @@
 
 
 /* Colours */
-
 .Old_Burgundy{
   color: #42332C;
 }
@@ -18,6 +16,7 @@
 .Desert_Sand{
   color: #F2CDB3;
 }
+
 .Cultured{
   color: #F6F6F6;
 }
@@ -43,8 +42,17 @@
   background: #F6F6F6;
 }
 
-/* General */
+.Old_Burgundy-linear-background {
+  background: linear-gradient(145deg, rgba(66,51,44,1) 0%, rgba(31,31,31,1) 100%);
+}
 
+/* Line colours */
+.hr-Desert_Sand{
+  border-top: 5px solid #F2CDB3;
+  border-radius: 50px
+}
+
+/* General */
 html {
   height: 100%;
 }
@@ -62,6 +70,7 @@ body {
     background: #F2CDB3;
     color: #F6F6F6;
     min-width: 260px;
+    border-radius: 0rem
 }
 
 .btn:hover,
@@ -75,8 +84,11 @@ body {
   border-radius: 1.5rem
 }
 
-/* Navbar Adjustments */
+.border-thick {
+  border-width: 5px !important
+}
 
+/* Navbar Adjustments */
 nav {
   height: 80px
 }
@@ -85,4 +97,3 @@ nav {
   font-family: 'Leckerli One', cursive;
   font-size: 2em
 }
-
