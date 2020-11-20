@@ -24,12 +24,14 @@ class Animal(models.Model):
 
 class Service(models.Model):
     service_type = models.CharField(max_length=254)
-    period = models.DecimalField(max_digits=6, decimal_places=2)
-    cost = models.DecimalField(max_digits=6, decimal_places=2)
+    period = models.DecimalField(max_digits=6, decimal_places=0)
+    cost = models.DecimalField(max_digits=6, decimal_places=0)
     sub_heading = models.CharField(max_length=254)
     detail_1 = models.CharField(max_length=254)
     detail_2 = models.CharField(max_length=254)
     detail_3 = models.CharField(max_length=254)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.service_type
