@@ -13,4 +13,16 @@ def all_services(request):
         'services': services,
     }
 
-    return render(request, 'products/products.html', context)
+    return render(request, 'products/services.html', context)
+
+
+def service_detail(request):
+    """ A view to show details of a specific service """
+
+    services = Service.objects.all()
+
+    context = {
+        'services': services,
+    }
+
+    return render(request, 'products/services_detail.html', context)

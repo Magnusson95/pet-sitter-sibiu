@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+  <div class="container header-container">
+    <div class="row">
+      <div class="col"></div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+<!-- Services Carousel -->
+  <div class="w-100 shaded py-5">
+   <div class="container">
+    <div class="row">
+      <h1 class="mx-auto display-4">What We Offer</h1>
+      <div class="mb-2 col-12">
+        <div class="container-fluid">
+          <div class="row">
+            {% for service in services %}
+            <div class="col-sm-12 col-md-6 my-1">
+              <div class="card h-100 border-0 Eerie_Black">
+                {% if service.image %}
+                <a href="">
+                  <img class="card-img-top img-fluid" src="{{ service.image.url }}" alt="{{ service.name }}">
+                </a>
+                {% else %}
+                <a href="">
+                  <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ service.name }}">
+                </a>
+                {% endif %}
+                <div class="card-body pb-0">
+                  <p class="mb-0">{{ service.service_type }}</p>
+                </div>
+                <div class="card-footer bg-white pt-0 border-0 text-left ">
+                  <div class="row">
+                    <div class="col">
+                      <p class="lead mb-0 text-left font-weight-bold">{{ service.cost }} lei</p>
+                      <p class="lead mb-0 text-left font-weight-bold">{{ service.period }} minutes</p>
+                      <ul class="">
+                        <li>{{ service.detail_1 }}</li>
+                        <li>{{ service.detail_2 }}</li>
+                        <li>{{ service.detail_3 }}</li>
+                      </ul>
+                      {% if service.rating %}
+                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ service.rating }} / 5</small>
+                      {% else %}
+                        <small class="text-muted">No Rating</small>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+  </div>
+
+{% endblock %}
