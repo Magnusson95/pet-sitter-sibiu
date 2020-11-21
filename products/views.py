@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Service
 
 # Create your views here.
@@ -16,13 +16,13 @@ def all_services(request):
     return render(request, 'products/services.html', context)
 
 
-def service_detail(request):
+def service_detail(request, service_id):
     """ A view to show details of a specific service """
 
-    services = Service.objects.all()
+    service = get_object_or_404(Service, pk=service_id)
 
     context = {
-        'services': services,
+        'service': service,
     }
 
-    return render(request, 'products/services_detail.html', context)
+    return render(request, 'products/service_detail.html', context)

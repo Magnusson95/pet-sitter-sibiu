@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+  <div class="container header-container">
+    <div class="row">
+      <div class="col"></div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+      <div class="image-container my-5">
+        {% if service.image %}
+        <a href="">
+          <img class="card-img-top img-fluid" src="{{ service.image.url }}" alt="{{ service.name }}">
+        </a>
+        {% else %}
+        <a href="">
+          <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ service.name }}">
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="product-details-container mb-5 mt-md-5">
+        <p class="mb-0">{{ service.service_type }}</p>
+        <p class="lead mb-0 text-left font-weight-bold">{{ service.cost }} lei</p>
+        <p class="lead mb-0 text-left font-weight-bold">{{ service.period }} minutes</p>
+        <ul class="">
+          <li>{{ service.detail_1 }}</li>
+          <li>{{ service.detail_2 }}</li>
+          <li>{{ service.detail_3 }}</li>
+        </ul>
+        {% if service.rating %}
+          <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ service.rating }} / 5</small>
+        {% else %}
+          <small class="text-muted">No Rating</small>
+        {% endif %}
+        <p class="lead mb-0 text-left font-weight-bold">{{ service.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
