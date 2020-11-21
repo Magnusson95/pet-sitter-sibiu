@@ -76,14 +76,14 @@
             {% endif %}
             </div>
           </li>
-          <a class="{% if grand_total %}font-weight-bold{% endif %} nav-link" href="">
+          <a class="{% if grand_total %}font-weight-bold{% endif %} nav-link" href="{% url 'view_bag' %}">
             <div>
               <div><i class="fas fa-shopping-bag fa-lg"></i></div>
               <p class="my-0">
                   {% if grand_total %}
                       ${{ grand_total|floatformat:2 }}
                   {% else %}
-                      $0.00
+                      0 lei
                   {% endif %}
               </p>
             </div>
