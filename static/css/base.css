@@ -65,6 +65,11 @@ body {
   font-family: 'Lemonada', cursive;
 }
 
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
 /* Buttons */
 .btn {
     background: #F2CDB3;
