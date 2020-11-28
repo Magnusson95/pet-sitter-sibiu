@@ -33,13 +33,16 @@ def add_to_bag(request, item_id):
 def adjust_bag(request, item_id):
     """ Adjust a product in the bag """
 
+    service = Service.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
     if quantity > 0:
         bag[item_id] = quantity
+        messages.warning(request, f'We have updated {service.service_type} quantity to {bag[item_id]}')
     else:
         bag.pop(item_id)
+        messages.warning(request, f'We have removed {service.service_type} from your bag')
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
@@ -49,9 +52,11 @@ def remove_from_bag(request, item_id):
     """ Remove a product from the bag """
 
     try:
+        service = Service.objects.get(pk=item_id)
         bag = request.session.get('bag', {})
 
         bag.pop(item_id)
+        messages.warning(request, f'We have removed {service.service_type} from your bag')
 
         request.session['bag'] = bag
         return HttpResponse(status=200)
