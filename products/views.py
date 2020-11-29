@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Service, Animal
+from .models import Service, Animal, Category
 
 # Create your views here.
 
@@ -21,10 +21,12 @@ def service_detail(request, service_id):
 
     service = get_object_or_404(Service, pk=service_id)
     animals = Animal.objects.order_by('animal')
+    categories = Category.objects.all()
 
     context = {
         'service': service,
         'animals': animals,
+        'categories': categories,
     }
 
     return render(request, 'products/service_detail.html', context)
