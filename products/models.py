@@ -7,7 +7,7 @@ class Category(models.Model):
         verbose_name_plural = 'Categories'
         
     name = models.CharField(max_length=254)
-    fee_multiplier = models.DecimalField(max_digits=6, decimal_places=2)
+    additional_fee = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
         return self.name

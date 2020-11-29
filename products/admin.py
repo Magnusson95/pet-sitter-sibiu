@@ -16,10 +16,10 @@ class AnimalAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'name',
-        'fee_multiplier'
+        'additional_fee'
     )
 
-    ordering = ('fee_multiplier',)
+    ordering = ('additional_fee',)
 
 
 class ServiceAdmin(admin.ModelAdmin):

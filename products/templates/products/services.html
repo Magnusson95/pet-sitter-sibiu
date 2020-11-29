@@ -11,7 +11,7 @@
 
 {% block content %}
 <!-- Services Carousel -->
-  <div class="w-100 shaded py-5">
+  <div class="w-100 shaded py-5 h-100">
    <div class="container">
     <div class="row">
       <h1 class="mx-auto display-4">What We Offer</h1>
@@ -36,7 +36,7 @@
                 <div class="card-footer bg-white pt-0 border-0 text-left ">
                   <div class="row">
                     <div class="col">
-                      <p class="lead mb-0 text-left font-weight-bold">{{ service.cost }} lei</p>
+                      <p class="lead mb-0 text-left font-weight-bold">from {{ service.cost }} lei</p>
                       <p class="lead mb-0 text-left font-weight-bold">{{ service.period }} minutes</p>
                       <ul class="">
                         <li>{{ service.detail_1 }}</li>

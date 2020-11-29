@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid shaded h-100">
   <div class="row">
     <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
       <div class="image-container my-5">
@@ -28,7 +28,7 @@
     <div class="col-12 col-md-6 col-lg-4">
       <div class="service-details-container mb-5 mt-md-5">
         <p class="mb-0">{{ service.service_type }}</p>
-        <p class="lead mb-0 text-left font-weight-bold">{{ service.cost }} lei</p>
+        <p class="lead mb-0 text-left font-weight-bold">from {{ service.cost }} lei</p>
         <p class="lead mb-0 text-left font-weight-bold">{{ service.period }} minutes</p>
         <ul class="">
           <li>{{ service.detail_1 }}</li>
@@ -41,9 +41,19 @@
           <small class="text-muted">No Rating</small>
         {% endif %}
         <p class="lead mb-0 text-left font-weight-bold">{{ service.description|linebreaks }}</p>
+
         <form class="form" action="{% url 'add_to_bag' service.id %}" method="POST">
           {% csrf_token %}
           <div class="form-row">
+            <div class="col-12">
+              <select class="custom-select">
+                <option selected disabled>Select an Animal</option>
+                  {% for animal in animals %}
+                  <option value="{{ animal.animal }}">{{ animal.animal }}</option>
+                  {% endfor %}
+              </select>
+            
+            </div>
             <div class="col-12">
               <p class="mt-3"><strong>Quantity:</strong></p>
               <div class="form-group w-50">
@@ -80,6 +90,7 @@
             <input type="hidden" name="redirect_url" value="{{ request.path }}">
           </div>
         </form>
+
       </div>
     </div>
   </div>
