@@ -15,18 +15,22 @@ def add_to_bag(request, item_id):
     """ Add a service to the bag """
 
     service = Service.objects.get(pk=item_id)
-    animal = request.POST.get('animal_selector')
+    animal = request.POST['animal_selector']
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
     if animal:
-      if item_id in list(bag.keys()):
-          bag[item_id] += quantity
-          messages.info(request, f'We have updated {service.service_type} quantity to {bag[item_id]}')
-      else:
-          bag[item_id] = quantity
-          messages.success(request, f'Added {service.service_type} to your bag')
+        if item_id in list(bag.keys()):
+            if animal in bag[item_id]['items_by_animal'].keys():
+                bag[item_id]['items_by_animal'][animal] += quantity
+                messages.info(request, f'We have updated {service.service_type} {animal} quantity to {bag[item_id]}')
+            else:
+                bag[item_id]['items_by_animal'][animal] = quantity
+                messages.success(request, f'Added {service.service_type} {animal} to your bag')
+        else:
+            bag[item_id] = {'items_by_animal': {animal: quantity}}
+            messages.success(request, f'Added {service.service_type} {animal} to your bag')
     else:
         messages.error(request, 'Please select an animal')
 
