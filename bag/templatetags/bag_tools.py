@@ -6,4 +6,4 @@ register = template.Library()
 
 @register.filter(name='calc_subtotal')
 def calc_subtotal(cost, quantity):
-    return cost
+    return cost, quantity

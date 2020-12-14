@@ -24,13 +24,13 @@ def add_to_bag(request, item_id):
         if item_id in list(bag.keys()):
             if animal in bag[item_id]['items_by_animal'].keys():
                 bag[item_id]['items_by_animal'][animal] += quantity
-                messages.info(request, f'We have updated {service.service_type} {animal} quantity to {bag[item_id]}')
+                messages.info(request, f'We have added another {quantity} {service.service_type}s for your {animal}')
             else:
                 bag[item_id]['items_by_animal'][animal] = quantity
-                messages.success(request, f'Added {service.service_type} {animal} to your bag')
+                messages.success(request, f'We have added {quantity} {service.service_type}s for your {animal}')
         else:
             bag[item_id] = {'items_by_animal': {animal: quantity}}
-            messages.success(request, f'Added {service.service_type} {animal} to your bag')
+            messages.success(request, f'We have added {quantity} {service.service_type}s for your {animal}')
     else:
         messages.error(request, 'Please select an animal')
 
@@ -43,14 +43,17 @@ def adjust_bag(request, item_id):
 
     service = Service.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
+    animal = request.POST['animal_selector']
     bag = request.session.get('bag', {})
 
     if quantity > 0:
-        bag[item_id] = quantity
+        bag[item_id]['items_by_animal'][animal] = quantity
         messages.warning(request, f'We have updated {service.service_type} quantity to {bag[item_id]}')
     else:
-        bag.pop(item_id)
-        messages.warning(request, f'We have removed {service.service_type} from your bag')
+        del bag[item_id]['items_by_animal'][animal]
+        if not bag[item_id]['items_by_animal'][animal]:
+            bag.pop(item_id)
+            messages.warning(request, f'We have removed {service.service_type} from your bag')
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
