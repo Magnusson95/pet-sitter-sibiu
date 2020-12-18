@@ -29,6 +29,7 @@
 
     <!-- head javascript links -->
     {% block corejs %}
+          
       <!-- Fontawesome Link -->
       <script src="https://kit.fontawesome.com/8ea4f12082.js" crossorigin="anonymous"></script>
       <!-- JQuery Link -->
@@ -38,6 +39,8 @@
         crossorigin="anonymous"></script>
       <!-- JS Bootstrap Link -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+      <!-- Masonry JS Link -->
+      <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -58,7 +61,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav text-center">
           <a class="nav-link" href="{% url 'home' %}">Home</a>
-          <a class="nav-link" href="#">About Us</a>
+          <a class="nav-link" href="{% url 'view_collage' %}">About Us</a>
           <a class="nav-link" href="{% url 'services' %}">Our Services</a>
           <a class="nav-link" href="#">Contact</a>
           

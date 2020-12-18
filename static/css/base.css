@@ -116,6 +116,18 @@ body {
   font-size: 2em
 }
 
+/* Masonry Gallery */
+.grid-item { width: 200px; }
+@media all and (max-width: 576px) {
+  .grid-item{
+    width: 45%;
+    margin: 2px;
+    padding: 0px
+  }
+}
+
+/* Media Widths */
+
 @media all and (max-width: 991px) {
   body{
     height:  calc(100vh - 74px);
