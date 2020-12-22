@@ -11,7 +11,7 @@
 
 {% block content %}
 <div class="w-100 cultured-background Eerie_Black py-5">
-   <div class="container">
+  <div class="container">
     <div class="row">
     <img src="{{ MEDIA_URL }}Dog No Background 2.png" alt="About-Dog-Image" class="img-fluid col-12 col-md-4 my-auto">
       <div class="col-12 col-md-8 my-auto">
@@ -20,14 +20,24 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam temporibus quia voluptatem doloremque, aperiam quam cum natus quisquam! Voluptas assumenda laudantium, voluptatibus at soluta quae. Cum vitae dolore doloremque accusamus?</p>
       </div>
     </div>
-   </div>
   </div>
-<div class="grid Old_Burgundy-linear-background">
-{% for photo in photos %}
+</div>
+<h2 class="d-flex justify-content-center">Total Number of Photos: {{ count }}</h2>
+<div class="grid shaded">
+{% for photo in page.object_list %}
   <div class="grid-item">
     <img class="img-fluid m-2 p-2" src="{{ photo.image.url }}" alt="{{ photo.photo_name }}">
   </div>
 {% endfor %}
+</div>
+<div class="d-flex justify-content-between">
+{% if page.has_previous %}
+<a class="btn btn-lg py-3" href="{% url 'view_collage' %}?page={{ page.previous_page_number }}">Previous Page</a>
+{% endif %}
+<h2>Page {{ page.number }}</h2>
+{% if page.has_next %}
+<a class="btn btn-lg py-3" href="{% url 'view_collage' %}?page={{ page.next_page_number }}">Next Page</a>
+{% endif %}
 </div>
 {% endblock %}
 
