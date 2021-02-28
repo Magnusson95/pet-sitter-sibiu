@@ -30,9 +30,6 @@
     $(closestInput).val(currentValue + 1);
     var itemId = $(this).data('item_id');
     handleEnableDisable(itemId);
-    var service_cost = {{ service.cost }};
-    var subtotal = (service_cost) * (currentValue + 1);
-    $('#subtotal').text(subtotal);
   });
 
   // Decrement quantity
@@ -43,8 +40,5 @@
     $(closestInput).val(currentValue - 1);
     var itemId = $(this).data('item_id');
     handleEnableDisable(itemId);
-    var service_cost = {{ service.cost }};
-    var subtotal = (service_cost) * (currentValue - 1);
-    $('#subtotal').text(subtotal);
   });
 </script>

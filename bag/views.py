@@ -48,12 +48,12 @@ def adjust_bag(request, item_id):
 
     if quantity > 0:
         bag[item_id]['items_by_animal'][animal] = quantity
-        messages.warning(request, f'We have updated {service.service_type} quantity to {bag[item_id]}')
+        messages.warning(request, f'We have updated your {animal} {service.service_type} quantity to {quantity}')
     else:
         del bag[item_id]['items_by_animal'][animal]
         if not bag[item_id]['items_by_animal'][animal]:
             bag.pop(item_id)
-            messages.warning(request, f'We have removed {service.service_type} from your bag')
+            messages.warning(request, f'We have removed your {animal} {service.service_type} from your bag')
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
@@ -64,10 +64,15 @@ def remove_from_bag(request, item_id):
 
     try:
         service = Service.objects.get(pk=item_id)
+        animal = request.POST['animal']
         bag = request.session.get('bag', {})
 
-        bag.pop(item_id)
-        messages.warning(request, f'We have removed {service.service_type} from your bag')
+        del bag[item_id]['items_by_animal'][animal]
+        if not bag[item_id]['items_by_animal']:
+            bag.pop(item_id)
+            messages.warning(request, f'We have removed your {animal} {service.service_type} from your bag')
+        else:
+            bag.pop(item_id)
 
         request.session['bag'] = bag
         return HttpResponse(status=200)
