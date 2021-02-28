@@ -24,13 +24,13 @@ def add_to_bag(request, item_id):
         if item_id in list(bag.keys()):
             if animal in bag[item_id]['items_by_animal'].keys():
                 bag[item_id]['items_by_animal'][animal] += quantity
-                messages.info(request, f'We have added another {quantity} {service.service_type}s for your {animal}')
+                messages.info(request, f'We have added another {quantity} {service.service_type}(s) for your {animal}')
             else:
                 bag[item_id]['items_by_animal'][animal] = quantity
-                messages.success(request, f'We have added {quantity} {service.service_type}s for your {animal}')
+                messages.success(request, f'We have added {quantity} {service.service_type}(s) for your {animal}')
         else:
             bag[item_id] = {'items_by_animal': {animal: quantity}}
-            messages.success(request, f'We have added {quantity} {service.service_type}s for your {animal}')
+            messages.success(request, f'We have added {quantity} {service.service_type}(s) for your {animal}')
     else:
         messages.error(request, 'Please select an animal')
 

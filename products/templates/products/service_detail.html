@@ -45,12 +45,11 @@
         <form class="form" action="{% url 'add_to_bag' service.id %}" method="POST">
           {% csrf_token %}
           <div class="form-row">
-
             <div class="col-12">
+              <p class="mt-3"><strong>Select an Animal:</strong></p>
               <select class="custom-select" id="animal_selector" name="animal_selector">
-                <option selected disabled>Select an Animal</option>
                   {% for animal in animals %}
-                  <option value="{{ animal.animal }}">{{ animal.animal }} (+{{ animal.category.additional_fee }} lei)</option>
+                  <option value="{{ animal.animal }}">{{ animal.animal }}</option>
                   {% endfor %}
               </select>
             </div>
@@ -100,49 +99,4 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
-<!-- <script type="text/javascript">
-    // Update subtotal
-    $("#animal_selector").change (function () { 
-      var service_cost = {{ service.cost }};
-      var dropdownText = $('#animal_selector').find(":selected").text();
-      var currentValue = parseInt($(`#id_qty_${itemId}`).val());
-      var subtotal = dropdownText
-      
-      // (service_cost + 0) * currentValue + dropdownText;
-      $('#subtotal').text(subtotal);
-    });
-    
-</script> -->
-
-<script >
-  // when animal_selector input field is changed, run function:
-  $("#animal_selector").change (function () { 
-    
-    // find the value of the selected option:
-    var dropdownText = $('#animal_selector').find(":selected").val();
-
-    // change it to a string to match the models.py charfield (didn't work!!)
-    var animalstring = String(dropdownText)
-
-    // Iterate through the items in the database. Currently set to 'ifnotequal' as it returns responses,
-    // eventually this will change to 'ifequal'. This currently works if 'dropdownText' is replaced with
-    // an actual string.
-    {% for animal in animals %}
-      {% if "Pug" == animal.animal %}
-        var animal_fee = {{ animal.category.additional_fee }}
-        var service_cost = {{ service.cost }}
-        var cost = animal_fee + service_cost
-        console.log("{{ animal.animal }}");
-        console.log(animalstring);
-        console.log(cost);
-      {% endif %} 
-    {% endfor %}
-
-    // Currently just to check the variable works. Will eventually show subtotal calculation of 
-    // ((service.cost + animal.category.additional_fee) * quantity)
-    $('#subtotal').text(animalstring);
-
-  });
-</script>
-
 {% endblock %}
