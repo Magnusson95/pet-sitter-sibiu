@@ -26,7 +26,15 @@
   </div>
 
   <div class="row">
-    <div class="col-12 col-lg-7"></div>
+    <div class="col-12 col-lg-7">
+      {% if from_profile %}
+        <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
+          <span class="text-uppercase">Back to profile</span>
+        </a>
+      {% else %}
+        <p>Thank you for your purchase</p>
+      {% endif %}
+    </div>
   </div>
   <div class="row">
 </div>
