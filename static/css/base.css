@@ -116,6 +116,11 @@ body {
   font-size: 2em
 }
 
+/* Allauth adjustments */
+.allauth-form-inner-content {
+  padding: 10px
+}
+
 /* Masonry Gallery */
 .grid-item { width: 200px; }
 @media all and (max-width: 576px) {
