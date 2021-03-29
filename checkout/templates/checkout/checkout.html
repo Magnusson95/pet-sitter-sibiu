@@ -110,6 +110,10 @@
             <span>Your card will be charged <strong>{{ total|floatformat:2 }} lei</strong></span>
           </p>
         </div>
+        <div>
+          <!-- Pass the client secret to the view so we can get the payment intent id -->
+          <input type="hidden" value="{{ client_secret }}" name="client_secret">
+        </div>
       </form>
     </div>
   </div>

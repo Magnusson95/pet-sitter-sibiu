@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
-from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.views.decorators.http import require_POST
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
@@ -40,14 +40,13 @@ def checkout(request):
 
         form_data = {
             'full_name': request.POST['full_name'],
+            'county': request.POST['county'],
             'email': request.POST['email'],
-            'phone_number': request.POST['phone_number'],
-            'country': request.POST['country'],
-            'postcode': request.POST['postcode'],
             'town_or_city': request.POST['town_or_city'],
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
-            'county': request.POST['county'],
+            'country': request.POST['country'],
+            'phone_number': request.POST['phone_number'],
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
@@ -56,10 +55,9 @@ def checkout(request):
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
-
             for item_id, item_data in bag.items():
                 try:
-                    service = get_object_or_404(Service, pk=item_id)
+                    service = Service.objects.get(Service, id=item_id)
                     for animal, quantity in item_data['items_by_animal'].items():
                         order_line_item = OrderLineItem(
                             order=order,
@@ -70,8 +68,8 @@ def checkout(request):
                         order_line_item.save()
                 except Service.DoesNotExist:
                     messages.error(request, (
-                        "One of the services in your bag wasn't found in our database. "
-                        "Please call us for assistance!")
+                        "One of the services in your cart wasn't found in our database."
+                        "Please try again!")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
@@ -85,35 +83,34 @@ def checkout(request):
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "There's nothing in your bag at the moment")
-            return redirect(reverse('services'))
+            return redirect(reverse('all_antiquities'))
 
-    current_bag = bag_contents(request)
-    total = current_bag['total']
-    stripe_total = round(total * 100)
-    stripe.api_key = stripe_secret_key
-    intent = stripe.PaymentIntent.create(
-        amount=stripe_total,
-        currency=settings.STRIPE_CURRENCY,
-    )
+        current_bag = bag_contents(request)
+        total = current_bag['total']
+        stripe_total = round(total * 100)
+        stripe.api_key = stripe_secret_key
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
+        )
 
-    if request.user.is_authenticated:
-        try:
-            profile = UserProfile.objects.get(user=request.user)
-            order_form = OrderForm(initial={
-                'full_name': profile.user.get_full_name(),
-                'email': profile.user.email,
-                'phone_number': profile.default_phone_number,
-                'country': profile.default_country,
-                'postcode': profile.default_postcode,
-                'town_or_city': profile.default_town_or_city,
-                'street_address1': profile.default_street_address1,
-                'street_address2': profile.default_street_address2,
-                'county': profile.default_county,
-            })
-        except UserProfile.DoesNotExist:
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'first_name': profile.user.first_name,
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'country': profile.default_country,
+                    'town_or_city': profile.default_town_or_city,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'county': profile.default_county,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
             order_form = OrderForm()
-    else:
-        order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
