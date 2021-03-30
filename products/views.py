@@ -93,7 +93,7 @@ def delete_service(request, service_id):
     if not request.user.is_superuser:
         messages.error(request, 'Hey, you are not authorised to be down here!')
         return redirect(reverse('home'))
-        
+
     service = get_object_or_404(Service, pk=service_id)
     service.delete()
     messages.success(request, 'Service gone forever...')
