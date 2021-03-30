@@ -4,7 +4,7 @@
     "model": "products.category",
     "fields": {
       "name": "Light",
-      "fee_multiplier": 1.00
+      "additional_fee": 1.00
     }
   },
   {
@@ -12,7 +12,7 @@
     "model": "products.category",
     "fields": {
       "name": "Medium",
-      "fee_multiplier": 1.33
+      "additional_fee": 1.33
     }
   },
   {
@@ -20,7 +20,7 @@
     "model": "products.category",
     "fields": {
       "name": "Heavy",
-      "fee_multiplier": 1.66
+      "additional_fee": 1.66
     }
   }
 ]
