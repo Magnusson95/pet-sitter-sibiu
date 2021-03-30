@@ -1,0 +1,17 @@
+Pet Sitter Sibiu
+
+Hi {{ order.full_name }}
+
+Thank you for your order on {{ order.date }}! A total amount of {{ order.grand_total }} has been charged to your card
+
+This is confirmation of order number {{ order.order_number }}.
+
+We will see you at {{ order.street_address1 }}, {{ order.street_address2 }} in {{ order.town_or_city }}, {{ order.country }}.
+
+We will call you on {{ order.phone_number }} 2 working days before {{ order.date }}.
+
+Thank you, if you have any questions, feel free to contact us at {{ contact_email }}.
+
+Kind regards,
+
+Pet Sitter Sibiu
