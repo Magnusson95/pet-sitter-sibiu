@@ -109,8 +109,23 @@
       <h1 class="text-center col-12 display-4">Testimonials</h1>
       <h4 class="text-center col-12">See what other people are saying</h4>
       <div class="my-auto">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam temporibus quia voluptatem doloremque, aperiam quam cum natus quisquam!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam temporibus quia voluptatem doloremque, aperiam quam cum natus quisquam! Voluptas assumenda laudantium, voluptatibus at soluta quae. Cum vitae dolore doloremque accusamus?</p>
+        <div class="row">
+          {% for review in reviews %}
+          <div class="col-sm-12 col-md-6 mb-3">
+          <div class="card">
+            <div class="card-header">
+              {{ review.rating}}/5
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>{{ review.review }}</p>
+                <footer class="blockquote-footer">{{ review.user}} <cite class="text-muted" title="Source Title">({{ review.date|date:"D d M Y"}})</cite></footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+          {% endfor %}
+        </div>
       </div>
     </div>
    </div>

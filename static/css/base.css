@@ -121,6 +121,13 @@ body {
   padding: 10px
 }
 
+/* Service Reviews */
+.review_photo {
+  height: 50px;
+  width: 50px;
+  border-radius: 50;
+}
+
 /* Product Form */
 
 .btn-file {
