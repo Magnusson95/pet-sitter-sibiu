@@ -38,9 +38,9 @@ def add_service(request):
     if request.method == 'POST':
         form = ServiceForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            service = form.save()
             messages.success(request, 'Successfully added service')
-            return redirect(reverse('add_service'))
+            return redirect(reverse('service_detail', args=[service.id]))
         else:
             messages.error(request, 'Failed to add servce, please check if form is valid')
     else:
@@ -59,7 +59,7 @@ def edit_service(request, service_id):
     if request.method == 'POST':
         form = ServiceForm(request.POST, request.FILES, instance=service)
         if form.is_valid():
-            form.save()
+            service = form.save()
             messages.success(request, 'Successfully updated service!')
             return redirect(reverse('service_detail', args=[service.id]))
         else:
@@ -75,3 +75,11 @@ def edit_service(request, service_id):
         }
 
         return render(request, template, context)
+
+
+def delete_service(request, service_id):
+    """ Delete service from site """
+    service = get_object_or_404(Service, pk=service_id)
+    service.delete()
+    messages.success(request, 'Service gone forever...')
+    return redirect(reverse('services'))

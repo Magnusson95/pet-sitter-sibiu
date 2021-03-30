@@ -41,6 +41,14 @@
           <small class="text-muted">No Rating</small>
         {% endif %}
         <p class="lead mb-0 text-left font-weight-bold">{{ service.description|linebreaks }}</p>
+        {% if request.user.is_superuser %}
+          <small class="ml-3">
+            <a href="{% url 'edit_service' service.id %}">Adjust</a>
+          </small>
+          <small class="ml-3">
+            <a href="{% url 'delete_service' service.id %}">Remove</a>
+          </small>
+        {% endif %}
 
         <form class="form" action="{% url 'add_to_bag' service.id %}" method="POST">
           {% csrf_token %}
