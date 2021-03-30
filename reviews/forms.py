@@ -6,7 +6,7 @@ class ReviewForm(forms.ModelForm):
 
     class Meta:
         model = UserReview
-        fields = '__all__'
+        fields = 'review', 'rating'
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

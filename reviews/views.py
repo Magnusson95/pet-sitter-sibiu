@@ -11,12 +11,18 @@ def review(request):
 
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully added review')
-            return redirect(reverse('home'))
+        if UserProfile.objects.filter(user=request.user).exists():
+            messages.error(request, 'You have already posted a review, greedy...')
+            return redirect('home')
         else:
-            messages.error(request, 'Failed to add review, please check if form is valid')
+            if form.is_valid():
+                review = form.save(commit=False)
+                review.user = request.user
+                review.save()
+                messages.success(request, 'Successfully added review')
+                return redirect(reverse('home'))
+            else:
+                messages.error(request, 'Failed to add review, please check if form is valid')
     else:
         form = ReviewForm(instance=profile)
     template = 'reviews/review.html'
