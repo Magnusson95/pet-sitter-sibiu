@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Service, Animal, Category
-
+from .forms import ServiceForm
 # Create your views here.
 
 
@@ -30,3 +30,14 @@ def service_detail(request, service_id):
     }
 
     return render(request, 'products/service_detail.html', context)
+
+
+def add_service(request):
+    """ Add a new service to the site """
+    form = ServiceForm()
+    template = 'products/add_service.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
