@@ -2,3 +2,7 @@
   max-height: 416px;
   overflow-y: auto;
 }
+
+#id_default_country {
+  height: 50px
+}
