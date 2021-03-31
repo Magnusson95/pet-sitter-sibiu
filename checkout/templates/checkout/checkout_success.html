@@ -24,6 +24,51 @@
       <p class="text-black">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
     </div>
   </div>
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <p>Order Number: {{ order.order_number }}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <p>Order Number: {{ order.date }}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <p>Total cost: {{ order.grand_total }}</p>
+    </div>
+  </div>
+  
+  {% for item in order.lineitems.all %}
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <tr>
+        <td class="py-3">
+          <p class="my-0"><strong>{{ item.service.service_type }}</strong></p>
+          <p class="my-0"><small>{{ item.animal }}</small></p>
+        </td>
+        <td class="py-3">
+          <p class="my-0">{{ item.service.cost }} lei</p>
+        </td>
+        <td class="py-3">
+          <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+        </td>
+        <td class="py-3">
+          <p class="my-0">{{ item.service.cost | calc_subtotal:item.quantity }} lei</p>
+        </td>
+      </tr>
+    </div>
+  </div>
+  {% endfor %}
+
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <p>This item will be delivered to {{ order.full_name }} at {{ order.street_address1 }}, {{ order.street_address2 }}, {{ order.town_or_city }}</p>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-12 col-lg-7">
