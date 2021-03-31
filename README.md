@@ -2,7 +2,7 @@
 
 An eCommerce site for the owner of Pet Sitter Sibiu. The site will be an opportunity for the business owner to present the services available, offer a background to the company and provide customers with the opportunity to pay for these services.
 
-![Image](https://images.unsplash.com/photo-1554080353-a576cf803bda?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80)
+![Image](https://github.com/Magnusson95/Pet-Sitter-Sibiu/blob/master/wireframes/Responsive-Desktop.JPG?raw=true)
 
 ---
 
