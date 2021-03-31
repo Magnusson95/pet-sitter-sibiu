@@ -43,11 +43,6 @@
                         <li>{{ service.detail_2 }}</li>
                         <li>{{ service.detail_3 }}</li>
                       </ul>
-                      {% if service.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ service.rating }} / 5</small>
-                      {% else %}
-                        <small class="text-muted">No Rating</small>
-                      {% endif %}
                       {% if request.user.is_superuser %}
                         <small class="ml-3">
                           <a href="{% url 'edit_service' service.id %}">Adjust</a>
