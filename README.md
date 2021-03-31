@@ -162,11 +162,21 @@ Javascript tested through user testing during each stage of writting. Including 
 
 Speed was also tested using [Pingdom](https://tools.pingdom.com/#5c7e3a4008c00000) and the site received a performance grade of 80/100
 
+### Automated Testing
+
+Various test files have been added to attempt to pull pages and see if they exist.
+Tests run on views to check authentication running correctly when users are logged in (i.e. can see 'my account' links but not 'login' link).
+Tests run to create and pull Services from the database.
+Tests run to attempt payment statuses.
+
+### Stripe Testing
+
+Stripe payments were attempted with every type of test card from all regions to check zip/postcode field still worked depending on country (as format and requirement changes depending on country). A list of these cards can be found [here](https://stripe.com/docs/testing#international-cards). Every card passed.
+
 ### Issues and Resolutions
 
-Software hover scale transformation was causing items to overflow, leading to extra, unwanted scrollbars. Reduction of the scale fixed this issue.
-
-Many views required the reordering of entire sections of the webpages when moving between mobile and desktop to get the desired view. Due to the fact I had already advanced through most of the structure and styling, the best way to rectify this was to work with "display: none"
+Webhooks sending 500 response errors due to mismatching of postal code in billing and shipping, reintroduced shipping from the intent during the test to check if order exists in the model.
+Webhooks not sending whilst in gitpod due to sharing restrictions in the workspace.
 
 ### Known Issues
 

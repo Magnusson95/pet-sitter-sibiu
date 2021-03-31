@@ -45,7 +45,7 @@ class TestOrderModel(TestCase):
             service=service,
             user=user,
         )
-        self.assertEquals(str(order), user.username + " " + service.name + " @ " + str(service.costs))
+        self.assertEquals(str(order), user.username + " " + service.service_type + " @ " + str(service.costs))
 
     def test_order_negative_cost_zeros(self):
         # expect failure if trying to create an order without an owner
@@ -57,7 +57,7 @@ class TestOrderModel(TestCase):
             service=service,
             user=user,
         )
-        self.assertEqual(str(order), user.username + " " + service.name + " @ 0.00")
+        self.assertEqual(str(order), user.username + " " + service.service_type + " @ 0.00")
 
     def test_create(self):
         # expect failure if trying to create an order without an owner

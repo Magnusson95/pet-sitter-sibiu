@@ -17,7 +17,7 @@ class TestServiceModel(TestCase):
 
     def test_str(self):
         test_name = Service(
-            name='A Service',
+            service_type='A Service',
             cost=1.00,
             description='Test Service description',
             sub_heading='Sub heading test',
@@ -28,10 +28,10 @@ class TestServiceModel(TestCase):
         )
         self.assertEqual(str(test_name), 'A service')
 
-    def test_default_cost(self):
+    def test_no_owner(self):
         # expect failure if trying to create an order without an owner
         test_name = Service(
-            name='A Service',
+            service_type='A Service',
             cost=1.00,
             description='Test Service description',
             sub_heading='Sub heading test',
@@ -41,5 +41,5 @@ class TestServiceModel(TestCase):
             period=50
         )
         test_name.save()
-        prod = Service.objects.filter(name='A service').first()
+        prod = Service.objects.filter(service_type='A service').first()
         self.assertEqual(prod.cost, 10)
