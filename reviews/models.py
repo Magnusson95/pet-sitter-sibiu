@@ -9,9 +9,14 @@ class UserReview(models.Model):
     Model for saving reviews
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    review = models.TextField()
+    rating = models.IntegerField(choices=((1, (1)),
+                                          (2, (2)),
+                                          (3, (3)),
+                                          (4, (4)),
+                                          (5, (5))),
+                                          default=3)
     date = models.DateTimeField(auto_now_add=True)
-    rating = models.DecimalField(max_digits=2, decimal_places=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
+    review = models.TextField()
 
     def __str__(self):
         return self.user.username
