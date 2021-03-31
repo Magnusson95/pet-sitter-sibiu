@@ -32,7 +32,7 @@
 
   <div class="row">
     <div class="col-12 col-md-4">
-      <p>Order Number: {{ order.date }}</p>
+      <p>Order Date: {{ order.date|date:"D d M Y" }}</p>
     </div>
   </div>
 
@@ -47,14 +47,13 @@
     <div class="col-12 col-md-4">
       <tr>
         <td class="py-3">
-          <p class="my-0"><strong>{{ item.service.service_type }}</strong></p>
-          <p class="my-0"><small>{{ item.animal }}</small></p>
+          <p class="my-0"><strong>{{ item.service.service_type }}</strong> for {{ item.animal }</p>
         </td>
         <td class="py-3">
           <p class="my-0">{{ item.service.cost }} lei</p>
         </td>
         <td class="py-3">
-          <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+          <p class="my-0 small">Qty: {{ item.quantity }}</p>
         </td>
       </tr>
     </div>
@@ -62,7 +61,7 @@
   {% endfor %}
 
   <div class="row">
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-4 mt-3">
       <p>This item will be delivered to {{ order.full_name }} at {{ order.street_address1 }}, {{ order.street_address2 }}, {{ order.town_or_city }}</p>
     </div>
   </div>
