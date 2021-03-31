@@ -26,7 +26,7 @@ var style = {
         iconColor: '#dc3545'
     }
 };
-var card = elements.create('card', {style: style});
+var card = elements.create('card', {hidePostalCode: true, style: style});
 card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
@@ -90,7 +90,7 @@ form.addEventListener('submit', function(ev) {
                     line2: $.trim(form.street_address2.value),
                     city: $.trim(form.town_or_city.value),
                     country: $.trim(form.country.value),
-                    // postal_code: $.trim(form.postcode.value),
+                    postal_code: $.trim(form.postcode.value),
                     state: $.trim(form.county.value),
                 }
             },
