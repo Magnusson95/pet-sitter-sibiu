@@ -65,7 +65,7 @@
 }
 
 .bag-notification-wrapper {
-  max-height: 100px;
+  height: 100px;
   overflow-x: hidden;
   overflow-y: auto;
 }

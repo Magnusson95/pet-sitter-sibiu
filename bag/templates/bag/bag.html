@@ -22,9 +22,6 @@
   <div class="row">
     <div class="col">
       {% if bag_items %}
-        <br>
-        <br>
-        {{ request.session.bag }}
         <div class="table-responsive rounded">
           <table class="table table-hover table-sm">
             <thead class="text-black thead-dark">
@@ -82,7 +79,8 @@
                     </div>
                   </form>
                   <a class="update-link text-info"><small>Update</small></a>
-                  <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-animal="{{ item.animal }}"><small>Remove</small></a>
+                  or
+                  <a class="remove-item text-danger" id="remove_{{ item.item_id }}" data-animal="{{ item.animal }}"><small>Remove</small></a>
                 </td>
                 <td class="py-3">
                   <p class="my-0">{{ item.service.cost | calc_subtotal:item.quantity }} lei</p>
@@ -96,13 +94,13 @@
             </tr>
             <tr>
               <td colspan="5" class="text-right">
-                <a href="{% url 'services' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                <a href="{% url 'services' %}" class="btn btn-lg mb-3">
                   <span class="icon">
                     <i class="fas fa-chevron-left"></i>
                   </span>
                   <span class="text-uppercase">Keep Shopping</span>
                 </a>
-                <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                <a href="{% url 'checkout' %}" class="btn btn-lg mb-3">
                   <span class="text-uppercase">Secure Checkout</span>
                   <span class="icon">
                     <i class="fas fa-lock"></i>

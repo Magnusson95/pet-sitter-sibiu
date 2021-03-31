@@ -63,16 +63,10 @@ def remove_from_bag(request, item_id):
     """ Remove a product from the bag """
 
     try:
-        service = Service.objects.get(pk=item_id)
         animal = request.POST['animal']
         bag = request.session.get('bag', {})
 
         del bag[item_id]['items_by_animal'][animal]
-        if not bag[item_id]['items_by_animal']:
-            bag.pop(item_id)
-            messages.warning(request, f'We have removed your {animal} {service.service_type} from your bag')
-        else:
-            bag.pop(item_id)
 
         request.session['bag'] = bag
         return HttpResponse(status=200)
