@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import ReviewForm
 from profiles.models import UserProfile
+from .models import UserReview
 
 
 @login_required
@@ -11,7 +12,7 @@ def review(request):
 
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES)
-        if UserProfile.objects.filter(user=request.user).exists():
+        if UserReview.objects.filter(user=request.user).exists():
             messages.error(request, 'You have already posted a review, greedy...')
             return redirect('home')
         else:
