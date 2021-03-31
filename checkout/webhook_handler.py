@@ -26,6 +26,7 @@ class StripeWH_Handler:
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
         send_mail(
             subject,
             body,
@@ -51,6 +52,7 @@ class StripeWH_Handler:
         save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
+        print(billing_details)
         grand_total = round(intent.charges.data[0].amount / 100, 2)
 
         # Update profile information if save_info was checked
@@ -92,6 +94,7 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
+            print('order existed!')
             self._order_confirmation_email(order)
             return HttpResponse(
                   content=f'Webhook received from stripe: {event["type"]} | Success: Verified order already in database',
